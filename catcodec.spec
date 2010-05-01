@@ -9,6 +9,7 @@ Source0:	http://binaries.openttd.org/extra/catcodec/%{version}/%{name}-%{version
 # Source0-md5:	ca9957edf43b9c299ee415e823be0357
 Patch0:		%{name}-flags.patch
 URL:		http://www.openttd.org/en/download-catcodec
+BuildRequires:	libstdc++-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
