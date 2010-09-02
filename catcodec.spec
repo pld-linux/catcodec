@@ -5,7 +5,7 @@ Version:	1.0.1
 Release:	1
 License:	GPL v2+
 Group:		Applications
-Source0:	http://binaries.openttd.org/extra/catcodec/%{version}/%{name}-%{version}-source.tar.bz2
+Source0:	http://cz.binaries.openttd.org/openttd/binaries/extra/catcodec/%{version}/%{name}-%{version}-source.tar.bz2
 # Source0-md5:	d5b90debd0761911a0d3a15607392c85
 Patch0:		%{name}-flags.patch
 URL:		http://www.openttd.org/en/download-catcodec
