@@ -1,20 +1,20 @@
---- catcodec-1.0.0/Makefile~	2009-11-05 23:33:48.000000000 +0100
-+++ catcodec-1.0.0/Makefile	2010-04-23 16:10:15.281761128 +0200
-@@ -19,7 +19,7 @@
- OBJS = catcodec.o io.o sample.o rev.o
- OS = unknown
+--- catcodec-1.0.1/Makefile~	2010-08-25 18:39:16.000000000 +0200
++++ catcodec-1.0.1/Makefile	2010-09-02 14:58:19.162337310 +0200
+@@ -21,7 +21,7 @@
  
--CFLAGS += -Wall -Wcast-qual -Wwrite-strings -Wno-multichar
-+CFLAGS += -Wall -Wcast-qual -Wwrite-strings -Wno-multichar $(OPTFLAGS)
- ifdef DEBUG
- 	CFLAGS += -g -ggdb
+ # Add some default CXXFLAGS only if there aren't dictated from the outside
+ ifndef CXXFLAGS
+-	CXXFLAGS = -Wall -Wcast-qual -Wwrite-strings
++	CXXFLAGS = -Wall -Wcast-qual -Wwrite-strings $(OPTFLAGS)
  endif
-@@ -30,7 +30,7 @@
- 	$(CXX) $(CFLAGS) -c -o $@ $^
  
- $(CATCODEC): $(OBJS)
--	$(CXX) $(CFLAGS) -o $@ $^
-+	$(CXX) $(CFLAGS) $(LDFLAGS) -o $@ $^
+ # Regardless of the warning settings, we really do not want these errors.
+@@ -39,7 +39,7 @@
+ 
+ $(CATCODEC): $(OBJS:%=objs/%)
+ 	@echo '[LINK] $@'
+-	$(Q)$(CXX) -o $@ $(CXXFLAGS) $(LDFLAGS) $^
++	$(Q)$(CXX) $(LDFLAGS) -o $@ $(CXXFLAGS) $(LDFLAGS) $^
  
  VERSION := $(shell ./findversion.sh | cut -f 1 -d'	')
  RES := $(shell if [ "`cat version.cache 2>/dev/null`" != "$(VERSION)" ]; then echo "$(VERSION)" > version.cache; fi )
