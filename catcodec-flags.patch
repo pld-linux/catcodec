@@ -1,14 +1,5 @@
 --- catcodec-1.0.1/Makefile~	2010-08-25 18:39:16.000000000 +0200
 +++ catcodec-1.0.1/Makefile	2010-09-02 14:58:19.162337310 +0200
-@@ -21,7 +21,7 @@
- 
- # Add some default CXXFLAGS only if there aren't dictated from the outside
- ifndef CXXFLAGS
--	CXXFLAGS = -Wall -Wcast-qual -Wwrite-strings
-+	CXXFLAGS = -Wall -Wcast-qual -Wwrite-strings $(OPTFLAGS)
- endif
- 
- # Regardless of the warning settings, we really do not want these errors.
 @@ -39,7 +39,7 @@
  
  $(CATCODEC): $(OBJS:%=objs/%)

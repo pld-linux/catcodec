@@ -1,12 +1,12 @@
 Summary:	Tool for decode and encode sample catalogues for OpenTTD
 Summary(pl.UTF-8):	Narzędzie do dekodowania oraz enkodowania katalogów dźwiękowych dla OpenTTD
 Name:		catcodec
-Version:	1.0.3
+Version:	1.0.5
 Release:	1
 License:	GPL v2+
 Group:		Applications
-Source0:	http://cz.binaries.openttd.org/openttd/binaries/extra/catcodec/%{version}/%{name}-%{version}-source.tar.bz2
-# Source0-md5:	31196e261f7216ecea300e8807693401
+Source0:	https://cdn.openttd.org/catcodec-releases/%{version}/%{name}-%{version}-source.tar.xz
+# Source0-md5:	732af1bbe83ffdde17dc10703896472d
 Patch0:		%{name}-flags.patch
 URL:		http://www.openttd.org/en/download-catcodec
 BuildRequires:	libstdc++-devel
@@ -26,7 +26,7 @@ dźwiękowych dla OpenTTD.
 %build
 %{__make} \
 	CXX="%{__cxx}" \
-	OPTFLAGS="%{rpmcxxflags}" \
+	CXXFLAGS="%{rpmcxxflags}" \
 	LDFLAGS="%{rpmldflags}" \
 	VERBOSE="on"
 
